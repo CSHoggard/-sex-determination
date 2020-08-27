@@ -1,20 +1,33 @@
 ### ARTICLE TITLE: 
-###  ###
+### Investigating sexual dimorphism in the human mandible 
+### through a geometric morphometric approach: an Indian population case study
 
 ### AUTHORS: 
 ###  ###
 
 ### ABSTRACT:
-###  ### 
+### The determination of sex through morphological studies of the mandible 
+### is of particular significance in forensic anthropology and bioarchaeological 
+### cases, where fragments often remain. The present research utilizes recent 
+### developments in geometric morphometrics to examine the degree to which the mandible 
+### can be a marker of sex. Using a modern Indian population, and orthopantomographic 
+### images, two-dimensional landmark and semi-landmark analyses were performed. 
+### Through a multivariate analytical and exploratory framework, incorporating 
+### ordination-based methods and supervised classificatory techniques, morphological 
+### changes were identified to be consistent with sex. The findings of this research 
+### were highly optimistic, supporting previous studies, and suggests that this 
+### approach may be used to assess sexual dimorphism. Thus, a new reference for sex 
+### determination by orthopantomography is created that will be of great benefit to 
+### the entire forensic science community. 
 
 ### SCRIPT AUTHOR: 
-### Dr Christian Steven Hoggard ###
+### Dr Christian Steven Hoggard
 
 ### SCRIPT CONTACT: 
-### C.S.Hoggard@soton.ac.uk/Christianhoggard@gmail.com ###
+### C.S.Hoggard@soton.ac.uk 
 
 ### LAST EDITED: 
-### 20/08/2020 ###
+### 20/08/2020 
 
 ### PACKAGE REQUIREMENTS ###
 
@@ -22,11 +35,13 @@ if(!require("geomorph")) install.packages('geomorph', repos='http://cran.us.r-pr
 if(!require("tidyverse")) install.packages('tidyverse', repos='http://cran.us.r-project.org')
 if(!require("Momocs")) install.packages('Momocs', repos='http://cran.us.r-project.org')
 if(!require("extrafont")) install.packages('extrafont', repos='http://cran.us.r-project.org')
+if(!require("tidytext")) install.packages('tidytext', repos='http://cran.us.r-project.org')
 
 library(geomorph)
 library(tidyverse)
 library(Momocs)
 library(extrafont)
+library(tidytext)
 
 ### DATA IMPORTING ###
 
@@ -59,7 +74,7 @@ stack(shape.gpa,
 shape.pca <- PCA(shape.gpa)
 scree(shape.pca)
 
-shape.pca.data <- as.tibble(shape.pca$x)
+shape.pca.data <- as_tibble(shape.pca$x)
 shape.data.new <- cbind(shape.table, shape.pca.data)
 
 ggplot(shape.data.new, aes(PC1, PC2, colour = sex)) + 
@@ -137,5 +152,3 @@ coo_plot(mean.shape.sex$shp$male, poly = FALSE, pch = 16, cex = 1.25, border = "
 coo_draw(mean.shape.sex$shp$female, poly = FALSE, pch = 16, cex = 1.25, border = "orange2", centroid = FALSE, xy.axis = FALSE, first.point = FALSE)
 legend("topright", lwd=1,
        col=c("royalblue4", "orange2"), legend=c("Male", "Female"))
-
-
