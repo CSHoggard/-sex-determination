@@ -35,11 +35,11 @@ if(!require("geomorph")) install.packages('geomorph', repos='http://cran.us.r-pr
 if(!require("tidyverse")) install.packages('tidyverse', repos='http://cran.us.r-project.org')
 if(!require("Momocs")) install.packages('Momocs', repos='http://cran.us.r-project.org')
 if(!require("extrafont")) install.packages('extrafont', repos='http://cran.us.r-project.org')
-if(!require("tidytext")) install.packages('tidytext', repos='http://cran.us.r-project.org')
 
 library(geomorph)
 library(tidyverse)
 library(Momocs)
+library(extrafont)
 
 ### DATA IMPORTING ###
 
@@ -125,7 +125,7 @@ plotRefToTarget(shape.pca.2$shapes$shapes.comp1$min,
                 label = FALSE,
                 gridPars = gridPar(pt.size = 1.25))
 
-title("First Principal Component (43.0%)", cex.main=1.5, line = -1)
+title("First Principal Component (43.0%)", cex.main=1.5, line = 0)
 
 plotRefToTarget(shape.pca.2$shapes$shapes.comp2$min, 
                 shape.pca.2$shapes$shapes.comp2$max, 
@@ -133,7 +133,7 @@ plotRefToTarget(shape.pca.2$shapes$shapes.comp2$min,
                 label = FALSE,
                 gridPars = gridPar(pt.size = 1.25))
 
-title("Second Principal Component (18.2%)", cex.main=1.5, line = -1)
+title("Second Principal Component (18.2%)", cex.main=1.5, line = 0)
 
 plotRefToTarget(shape.pca.2$shapes$shapes.comp3$min, 
                 shape.pca.2$shapes$shapes.comp3$max, 
@@ -141,7 +141,7 @@ plotRefToTarget(shape.pca.2$shapes$shapes.comp3$min,
                 label = FALSE,
                 gridPars = gridPar(pt.size = 1.25))
 
-title("Third Principal Component (11.3%)", cex.main=1.5, line = -1)
+title("Third Principal Component (11.3%)", cex.main=1.5, line = 0)
 
 ### MEAN SHAPES ###
 
